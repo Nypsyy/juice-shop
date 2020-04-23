@@ -17,12 +17,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
           aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
-      - name: Deploy App Stack
-        id: deploy
-        uses: alexjurkiewicz/cfn-deploy@v2.0.1
-        with:
-          stackName: mayeul-marsaut-stack
-          templateFile: CloudAwarenessLab/aws/cloudformation.yaml
       - name: EKS
         run: |
           sed -i "s#IMAGE_NAME#nypsyy/ssc#g" kustomization.yaml
