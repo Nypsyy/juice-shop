@@ -36,12 +36,12 @@ jobs:
           repository: nypsyy/juice-shop
           tag_with_sha: true
 
-      - name: Klar
-        run: |
-          wget https://github.com/optiopay/klar/releases/download/v2.4.0/klar-2.4.0-linux-amd64 -O klar
-          chmod +x klar
-          CLAIR_ADDR=http://clair.3r1.io:6060 ./klar nypsyy/juice-shop:sha-$(git rev-parse --short HEAD)
-      
+      # - name: Klar
+      #   run: |
+      #     wget https://github.com/optiopay/klar/releases/download/v2.4.0/klar-2.4.0-linux-amd64 -O klar
+      #     chmod +x klar
+      #     CLAIR_ADDR=http://clair.3r1.io:6060 ./klar nypsyy/juice-shop:sha-$(git rev-parse --short HEAD)
+
       - name: AWS region-output
         run: |
           aws configure set default.region us-east-1
